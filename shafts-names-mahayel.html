@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colored Table with Print and Copy Buttons</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .button-container {
+        margin-bottom: 20px;
+    }
+    .button {
+        padding: 10px 15px;
+        margin-right: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<div class="button-container">
+    <button class="button" onclick="printTable()">Print</button>
+    <button class="button" onclick="copyTable()">Copy</button>
+</div>
+
+<h2>Shafts-Names-Mahayel</h2>
+
+<table id="myTable">
+    <tr>
+        <th>Index</th>
+        <th>Location</th>
+        <th>Description</th>
+    </tr>
+    <tr><td>1</td><td>KP 5+196</td><td>VENT SHAFT No 1</td></tr>
+    <tr><td>2</td><td>KP 7+777</td><td>DRAIN SHAFT No 1</td></tr>
+    <tr><td>3</td><td>KP 8+000</td><td>VENT SHAFT No 2</td></tr>
+    <tr><td>4</td><td>KP 11+027</td><td>VENT SHAFT no 3</td></tr>
+    <tr><td>5</td><td>KP 12+972</td><td>WASH OUT SHAFT No 1</td></tr>
+    <tr><td>6</td><td>KP 14+959</td><td>DRAIN SHAFT No 2</td></tr>
+    <tr><td>7</td><td>KP 16+200</td><td>VENT SHAFT No 4</td></tr>
+    <tr><td>8</td><td>KP 18+693</td><td>VENT SHAFT No 5</td></tr>
+    <tr><td>9</td><td>KP 21+074</td><td>DRAIN SHAFT No 3</td></tr>
+    <tr><td>10</td><td>KP 21+758</td><td>VENT SHAFT No 6</td></tr>
+    <tr><td>11</td><td>KP 24+612</td><td>DRAIN SHAFT No 4</td></tr>
+    <tr><td>12</td><td>KP 27+008</td><td>VENT SHAFT No 7</td></tr>
+    <tr><td>13</td><td>KP 27+384</td><td>DRAIN SHAFT No 5</td></tr>
+    <tr><td>14</td><td>KP 27+333</td><td>VENT SHAFT No 8</td></tr>
+    <tr><td>15</td><td>KP 27+614</td><td>VENT SHAFT No 9</td></tr>
+    <tr><td>16</td><td>KP 27+705</td><td>DRAIN SHAFT No 6</td></tr>
+    <tr><td>17</td><td>KP 30+340</td><td>VENT SHAFT No 10</td></tr>
+    <tr><td>18</td><td>KP 30+363</td><td>DRAIN SHAFT No 7</td></tr>
+    <tr><td>19</td><td>KP 30+800</td><td>DRAIN SHAFT No 8</td></tr>
+    <tr><td>20</td><td>KP 32+845</td><td>VENT SHAFT No 11</td></tr>
+    <tr><td>21</td><td>KP 35+763</td><td>VENT SHAFT No 12</td></tr>
+    <tr><td>22</td><td>KP 38+874</td><td>VENT SHAFT No 13</td></tr>
+    <tr><td>23</td><td>KP 39+506</td><td>DRAIN SHAFT No 9</td></tr>
+    <tr><td>24</td><td>KP 41+900</td><td>DRAIN SHAFT No 10</td></tr>
+    <tr><td>25</td><td>KP 45+479</td><td>VENT SHAFT No 14</td></tr>
+    <tr><td>26</td><td>KP 47+824</td><td>DRAIN SHAFT No 11</td></tr>
+    <tr><td>27</td><td>KP 53+213</td><td>DRAIN SHAFT No 12</td></tr>
+    <tr><td>28</td><td>KP 55+708</td><td>VENT SHAFT No 15</td></tr>
+    <tr><td>29</td><td>KP 55+970</td><td>DRAIN SHAFT No 13</td></tr>
+    <tr><td>30</td><td>KP 56+283</td><td>VENT SHAFT No 16</td></tr>
+    <tr><td>31</td><td>KP 56+429</td><td>WASHOUT SHAFT No 2</td></tr>
+    <tr><td>32</td><td>KP 57+434</td><td>VENT SHAFT No 17</td></tr>
+    <tr><td>33</td><td>KP 59+448</td><td>VENT SHAFT No 18</td></tr>
+    <tr><td>34</td><td>KP 59+609</td><td>DRAIN SHAFT No 14</td></tr>
+    <tr><td>35</td><td>KP 59+900</td><td>VENT SHAFT No 19</td></tr>
+    <tr><td>36</td><td>KP 60+041</td><td>DRAIN SHAFT No 15</td></tr>
+    <tr><td>37</td><td>KP 64+917</td><td>VENT SHAFT No 20</td></tr>
+    <tr><td>38</td><td>KP 65+204</td><td>DRAIN SHAFT No 16</td></tr>
+    <tr><td>39</td><td>KP 65+587</td><td>VENT SHAFT No 21</td></tr>
+    <tr><td>40</td><td>KP 66+112</td><td>VENT SHAFT No 22</td></tr>
+    <tr><td>41</td><td>KP 66+533</td><td>VENT SHAFT No 23</td></tr>
+    <tr><td>42</td><td>KP 67+028</td><td>VENT SHAFT No 24</td></tr>
+    <tr><td>43</td><td>KP 67+167</td><td>DRAIN SHAFT No 17</td></tr>
+    <tr><td>44</td><td>KP 67+200</td><td>DRAIN SHAFT No 18</td></tr>
+    <tr><td>45</td><td>KP 67+350</td><td>VENT SHAFT No 25</td></tr>
+    <tr><td>46</td><td>KP 67+817</td><td>VENT SHAFT No 26</td></tr>
+    <tr><td>47</td><td>KP 67+907</td><td>DRAIN SHAFT No 19</td></tr>
+    <tr><td>48</td><td>KP 68+425</td><td>VENT SHAFT No 27</td></tr>
+    <tr><td>49</td><td>KP 68+853</td><td>VENT SHAFT No 28</td></tr>
+    <tr><td>50</td><td>KP 68+900</td><td>Line Valve SHAFT No 01</td></tr>
+    <tr><td>51</td><td>KP 69+008</td><td>DRAIN SHAFT No 20</td></tr>
+    <tr><td>52</td><td>KP 70+149</td><td>VENT SHAFT No 29</td></tr>
+    <tr><td>53</td><td>KP 70+229</td><td>DRAIN SHAFT No 21</td></tr>
+    <tr><td>54</td><td>KP 71+162</td><td>VENT SHAFT No 30</td></tr>
+    <tr><td>55</td><td>KP 71+263</td><td>DRAIN SHAFT No 22</td></tr>
+    <tr><td>56</td><td>KP 72+492</td><td>DRAIN SHAFT No 23</td></tr>
+    <tr><td>57</td><td>KP 74+111</td><td>VENT SHAFT No 31</td></tr>
+    <tr><td>58</td><td>KP 74+217</td><td>DRAIN SHAFT No 24</td></tr>
+    <tr><td>59</td><td>KP 74+790</td><td>VENT SHAFT No 32</td></tr>
+    <tr><td>60</td><td>KP 74+916</td><td>DRAIN SHAFT No 25</td></tr>
+    <tr><td>61</td><td>KP 79+106</td><td>VENT SHAFT No 33</td></tr>
+    <tr><td>62</td><td>KP 79+500</td><td>DRAIN SHAFT No 26</td></tr>
+    <tr><td>63</td><td>KP 79+515</td><td>VENT SHAFT No 34</td></tr>
+    <tr><td>64</td><td>KP 79+629</td><td>DRAIN SHAFT No 27</td></tr>
+    <tr><td>65</td><td>KP 80+711</td><td>VENT SHAFT No 35</td></tr>
+    <tr><td>66</td><td>KP 81+005</td><td>VENT SHAFT No 36</td></tr>
+    <tr><td>67</td><td>KP 81+229</td><td>DRAIN SHAFT No 28</td></tr>
+    <tr><td>68</td><td>KP 81+302</td><td>VENT SHAFT No 37</td></tr>
+    <tr><td>69</td><td>KP 81+325</td><td>DRAIN SHAFT No 29</td></tr>
+    <tr><td>70</td><td>KP 81+813</td><td>VACCUM SHAFT No 01 (24"&6")</td></tr>
+    <tr><td>71</td><td>KP 82+606</td><td>VENT SHAFT No 38</td></tr>
+    <tr><td>72</td><td>KP 83+077</td><td>DRAIN SHAFT No 30</td></tr>
+    <tr><td>73</td><td>KP 83+759</td><td>VENT SHAFT No 39</td></tr>
+    <tr><td>74</td><td>KP 84+163</td><td>VACCUM SHAFT No 02</td></tr>
+    <tr><td>75</td><td>KP 84+586</td><td>DRAIN SHAFT No 31</td></tr>
+    <tr><td>76</td><td>KP 85+966</td><td>VACCUM SHAFT No 03</td></tr>
+    <tr><td>77</td><td>KP 87+146</td><td>VENT SHAFT No 40</td></tr>
+    <tr><td>78</td><td>KP 87+351</td><td>DRAIN SHAFT No 32</td></tr>
+    <tr><td>79</td><td>KP 92+585</td><td>VENT SHAFT No 41</td></tr>
+    <tr><td>80</td><td>KP 96+355</td><td>DRAIN SHAFT No 33</td></tr>
+    <tr><td>81</td><td>KP 96+476</td><td>VENT SHAFT No 42</td></tr>
+    <tr><td>82</td><td>KP 98+294</td><td>DRAIN SHAFT No 34</td></tr>
+    <tr><td>83</td><td>KP 98+830</td><td>VENT SHAFT No 43</td></tr>
+    <tr><td>84</td><td>KP 99+957</td><td>DRAIN SHAFT No 35</td></tr>
+    <tr><td>85</td><td>KP 100+032</td><td>VENT SHAFT No 44</td></tr>
+    <tr><td>86</td><td>KP 100+490</td><td>DRAIN SHAFT No 36</td></tr>
+    <tr><td>87</td><td>KP 102+800</td><td>VENT SHAFT No 45</td></tr>
+    <tr><td>88</td><td>KP 103+697</td><td>DRAIN SHAFT No 37</td></tr>
+    <tr><td>89</td><td>KP 103+700</td><td>VENT SHAFT No 46</td></tr>
+    <tr><td>90</td><td>KP 104+094</td><td>DRAIN SHAFT No 38</td></tr>
+    <tr><td>91</td><td>KP 106+633</td><td>DRAIN SHAFT No 39</td></tr>
+    <tr><td>92</td><td>KP 106+740</td><td>VENT SHAFT No 47</td></tr>
+    <tr><td>93</td><td>KP 107+874</td><td>DRAIN SHAFT No 40</td></tr>
+    <tr><td>94</td><td>KP 107+944</td><td>VENT SHAFT No 48</td></tr>
+    <tr><td>95</td><td>KP 108+922</td><td>DRAIN SHAFT No 41</td></tr>
+    <tr><td>96</td><td>KP 109+147</td><td>VENT SHAFT No 49</td></tr>
+    <tr><td>97</td><td>KP 109+346</td><td>DRAIN SHAFT No 42</td></tr>
+    <tr><td>98</td><td>KP 110+539</td><td>VENT SHAFT No 50</td></tr>
+    <tr><td>99</td><td>KP 112+858</td><td>DRAIN SHAFT No 43</td></tr>
+    <tr><td>100</td><td>KP 115+165</td><td>VENT SHAFT No 51</td></tr>
+    <tr><td>101</td><td>KP 115+171</td><td>DRAIN SHAFT No 44</td></tr>
+    <tr><td>102</td><td>KP 116+218</td><td>VENT SHAFT No 52</td></tr>
+    <tr><td>103</td><td>KP 116+750</td><td>DRAIN SHAFT No 45</td></tr>
+    <tr><td>104</td><td>KP 117+454</td><td>VENT SHAFT No 53</td></tr>
+    <tr><td>105</td><td>KP 118+309</td><td>WASH OUT SHAFT No 3</td></tr>
+    <tr><td>106</td><td>KP 118+828</td><td>VENT SHAFT No 54</td></tr>
+    <tr><td>107</td><td>KP 119+176</td><td>DRAIN SHAFT No 46</td></tr>
+    <tr><td>108</td><td>KP 119+176</td><td>DRAIN SHAFT No 47</td></tr>
+    <tr><td>109</td><td>KP 119+893</td><td>DRAIN SHAFT No 48</td></tr>
+    <tr><td>110</td><td>KP 120+148</td><td>DRAIN SHAFT No 49</td></tr>
+    <tr><td>111</td><td>KP 120+387</td><td>VENT SHAFT No 55</td></tr>
+    <tr><td>112</td><td>KP 120+440</td><td>DRAIN SHAFT No 50</td></tr>
+    <tr><td>113</td><td>KP 120+779</td><td>VENT SHAFT No 56</td></tr>
+    <tr><td>114</td><td>KP 121+213</td><td>VENT SHAFT No 57</td></tr>
+    <tr><td>115</td><td>KP 121+314</td><td>VENT SHAFT No 58</td></tr>
+    <tr><td>116</td><td>KP 121+753</td><td>DRAIN SHAFT No 51</td></tr>
+    <tr><td>117</td><td>KP 123+450</td><td>VENT SHAFT No 59</td></tr>
+    <tr><td>118</td><td>KP 124+114</td><td>DRAIN SHAFT No 52</td></tr>
+    <tr><td>119</td><td>KP 124+600</td><td>VENT SHAFT No 60</td></tr>
+    <tr><td>120</td><td>KP 130+433</td><td>VENT SHAFT No 61</td></tr>
+    <tr><td>121</td><td>KP 124+640</td><td>VENT SHAFT No 62</td></tr>
+    <tr><td>122</td><td>KP 133+022</td><td>DRAIN SHAFT No 53</td></tr>
+    <tr><td>123</td><td>KP 137+368</td><td>DRAIN SHAFT No 54</td></tr>
+    <tr><td>124</td><td>KP 138+505</td><td>VENT SHAFT No 63</td></tr>
+    <tr><td>125</td><td>KP 142+770</td><td>VENT SHAFT No 64</td></tr>
+    <tr><td>126</td><td>KP 143+193</td><td>DRAIN SHAFT No 55</td></tr>
+    <tr><td>127</td><td>KP 143+375</td><td>VENT SHAFT No 65</td></tr>
+    <tr><td>128</td><td>KP 144+370</td><td>VENT SHAFT No 66</td></tr>
+    <tr><td>129</td><td>KP 144+899</td><td>DRAIN SHAFT No 56</td></tr>
+    <tr><td>130</td><td>KP 146+160</td><td>VENT SHAFT No 67</td></tr>
+    <tr><td>131</td><td>KP 146+489</td><td>DRAIN SHAFT No 57</td></tr>
+    <tr><td>132</td><td>KP 147+034</td><td>VENT SHAFT No 68</td></tr>
+    <tr><td>133</td><td>KP 148+000</td><td>WASH OUT SHAFT No 4</td></tr>
+    <tr><td>134</td><td>KP 149+617</td><td>VENT SHAFT No 69</td></tr>
+    <tr><td>135</td><td>KP 150+268</td><td>DRAIN SHAFT No 58</td></tr>
+    <tr><td>136</td><td>KP 151+234</td><td>VENT SHAFT No 70</td></tr>
+    <tr><td>137</td><td>KP 152+235</td><td>DRAIN SHAFT No 59</td></tr>
+    <tr><td>138</td><td>KP 154+227</td><td>VENT SHAFT No 71</td></tr>
+    <tr><td>139</td><td>KP 154+844</td><td>VENT SHAFT No 72</td></tr>
+    <tr><td>140</td><td>KP 155+560</td><td>DRAIN SHAFT No 60</td></tr>
+    <tr><td>141</td><td>KP 156+247</td><td>VENT SHAFT No 73</td></tr>
+    <tr><td>142</td><td>KP 157+042</td><td>DRAIN SHAFT No 61</td></tr>
+    <tr><td>143</td><td>KP 157+235</td><td>VENT SHAFT No 74</td></tr>
+    <tr><td>144</td><td>KP 157+758</td><td>DRAIN SHAFT No 62</td></tr>
+    <tr><td>145</td><td>KP 158+350</td><td>VENT SHAFT No 75</td></tr>
+    <tr><td>146</td><td>KP 158+200</td><td>LINEVALVE No 01</td></tr>
+    <tr><td>147</td><td>KP 160+381</td><td>VENT SHAFT No 76</td></tr>
+    <tr><td>148</td><td>KP 161+585</td><td>VENT SHAFT No 77</td></tr>
+    <tr><td>149</td><td>KP 162+398</td><td>DRAIN SHAFT No 63</td></tr>
+    <tr><td>150</td><td>KP 165+697</td><td>VENT SHAFT No 78</td></tr>
+    <tr><td>151</td><td>KP 169+790</td><td>VENT SHAFT No 79</td></tr>
+    <tr><td>152</td><td>KP 171+060</td><td>DRAIN SHAFT No 64</td></tr>
+    <tr><td>153</td><td>KP 172+197</td><td>VENT SHAFT No 80</td></tr>
+    <tr><td>154</td><td>KP 177+020</td><td>DRAIN SHAFT No 65</td></tr>
+    <tr><td>155</td><td>KP 177+931</td><td>VENT SHAFT No 81</td></tr>
+    <tr><td>156</td><td>KP 179+147</td><td>DRAIN SHAFT No 66</td></tr>
+    <tr><td>157</td><td>KP 181+034</td><td>VENT SHAFT No 82</td></tr>
+    <tr><td>158</td><td>KP 181+992</td><td>DRAIN SHAFT No 67</td></tr>
+    <tr><td>159</td><td>KP 182+250</td><td>WASHOUT</td></tr>
+    <tr><td>160</td><td>KP 183+909</td><td>VENT SHAFT No 83</td></tr>
+    <tr><td>161</td><td>KP 185+038</td><td>DRAIN SHAFT No 68</td></tr>
+    <tr><td>162</td><td>KP 187+547</td><td>VENT SHAFT No 84</td></tr>
+    <tr><td>163</td><td>KP 187+668</td><td>DRAIN SHAFT No 69</td></tr>
+    <tr><td>164</td><td>KP 189+581</td><td>VENT SHAFT No 85</td></tr>
+    <tr><td>165</td><td>KP 190+827</td><td>DRAIN SHAFT No 70</td></tr>
+    <tr><td>166</td><td>KP 193+630</td><td>VENT SHAFT No 86</td></tr>
+    <tr><td>167</td><td>KP 196+256</td><td>VENT SHAFT No 87</td></tr>
+    <tr><td>168</td><td>KP 196+815</td><td>VENT SHAFT No 88</td></tr>
+    <tr><td>169</td><td>KP 197+738</td><td>DRAIN SHAFT No 71</td></tr>
+    <tr><td>170</td><td>TAP-OFF VALVE SHAFT C12-021</td></tr>
+    <tr><td>171</td><td>TAP-OFF VALVE SHAFT C13-021</td></tr>
+    <tr><td>172</td><td>TAP-OFF VALVE SHAFT C14-021</td></tr>
+    <tr><td>173</td><td>TAP-OFF VALVE SHAFT C15-032</td></tr>
+    <tr><td>174</td><td>TAP-OFF VALVE SHAFT C16-021</td></tr>
+    <tr><td>175</td><td>TAP-OFF STATION TOSM07</td></tr>
+    <tr><td>176</td><td>TAP-OFF STATION TOSM08</td></tr>
+    <tr><td>177</td><td>TAP-OFF STATION TOSM09 FUTURE</td></tr>
+    <tr><td>178</td><td>TAP-OFF STATION TOSM10</td></tr>
+    <tr><td>179</td><td>LV1</td></tr>
+    <tr><td>180</td><td>LV2</td></tr>
+
+</table>
+
+<script>
+    function printTable() {
+        var divContents = document.getElementById("myTable").outerHTML;
+        var printWindow = window.open('', '', 'height=600,width=800');
+        printWindow.document.write('<html><head><title>Print Table</title>');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write(divContents);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+
+    function copyTable() {
+        var range = document.create
+        Range();
+        range.selectNode(document.getElementById("myTable"));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        alert("Table copied to clipboard");
+    }
+</script>
+
+</body>
+</html>
