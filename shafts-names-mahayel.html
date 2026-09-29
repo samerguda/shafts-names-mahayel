@@ -1,267 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Colored Table with Print and Copy Buttons</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-    }
-    table, th, td {
-        border: 1px solid black;
-    }
-    th, td {
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    .button-container {
-        margin-bottom: 20px;
-    }
-    .button {
-        padding: 10px 15px;
-        margin-right: 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-    .button:hover {
-        background-color: #45a049;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2 Dutch (VTT)</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .header {
+            text-align: center;
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 20px 15px;
+        }
+        .header h2 {
+            margin: 0 0 8px 0;
+            font-size: 22px;
+        }
+        .header p {
+            margin: 0;
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        th {
+            background-color: #34495e;
+            color: #ffffff;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #f1f3f5;
+        }
+        .dutch {
+            direction: ltr;
+            text-align: left;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .infinitive {
+            color: #e67e22;
+        }
+        .pronunciation {
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+
+        /* التصميم التفاعلي المخصص للهواتف المحمولة */
+        @media screen and (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                margin-bottom: 15px;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                background-color: #fff !important;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+                padding: 8px;
+            }
+            td {
+                border: none;
+                border-bottom: 1px solid #f1f3f5;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 14px;
+            }
+            td:last-child {
+                border-bottom: none;
+            }
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #7f8c8d;
+                font-size: 13px;
+                margin-left: 10px;
+                white-space: nowrap;
+            }
+            .dutch {
+                direction: ltr;
+                text-align: right;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div class="button-container">
-    <button class="button" onclick="printTable()">Print</button>
-    <button class="button" onclick="copyTable()">Copy</button>
+<div class="container">
+    <div class="header">
+        <h2>الأفعال الهولندية في الماضي التام (VTT)</h2>
+        <p>تصريفات (ik / we) مع النطق والمعنى بالعربية</p>
+    </div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>المصدر (Infinitief)</th>
+                    <th>النطق</th>
+                    <th>المعنى بالعربية</th>
+                    <th>المفرد (ik)</th>
+                    <th>الجمع (we)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="dutch infinitive" data-label="المصدر">afspreken</td><td class="pronunciation" data-label="النطق">أَفْسْبْرِيكَن</td><td data-label="المعنى">يتفق / يحدد موعدًا</td><td class="dutch" data-label="المفرد (ik)">ik heb afgesproken</td><td class="dutch" data-label="الجمع (we)">we hebben afgesproken</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uitleggen</td><td class="pronunciation" data-label="النطق">أَوْتْلِخَن</td><td data-label="المعنى">يشرح</td><td class="dutch" data-label="المفرد (ik)">ik heb uitgelegd</td><td class="dutch" data-label="الجمع (we)">we hebben uitgelegd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">meebrengen</td><td class="pronunciation" data-label="النطق">مَيْبْرِينخَن</td><td data-label="المعنى">يحضر معه</td><td class="dutch" data-label="المفرد (ik)">ik heb meegebracht</td><td class="dutch" data-label="الجمع (we)">we hebben meegebracht</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">afmaken</td><td class="pronunciation" data-label="النطق">أَفْمَاكَن</td><td data-label="المعنى">ينهي</td><td class="dutch" data-label="المفرد (ik)">ik heb afgemaakt</td><td class="dutch" data-label="الجمع (we)">we hebben afgemaakt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uitnodigen</td><td class="pronunciation" data-label="النطق">أَوْتْنُودِخَن</td><td data-label="المعنى">يدعو</td><td class="dutch" data-label="المفرد (ik)">ik heb uitgenodigd</td><td class="dutch" data-label="الجمع (we)">we hebben uitgenodigd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verhuizen</td><td class="pronunciation" data-label="النطق">فِيرْهَاوْزَن</td><td data-label="المعنى">ينتقول للسكن</td><td class="dutch" data-label="المفرد (ik)">ik ben verhuisd</td><td class="dutch" data-label="الجمع (we)">we zijn verhuisd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">aantrekken</td><td class="pronunciation" data-label="النطق">آنْتْرَكَن</td><td data-label="المعنى">يرتدي / يجذب</td><td class="dutch" data-label="المفرد (ik)">ik heb aangetrokken</td><td class="dutch" data-label="الجمع (we)">we hebben aangetrokken</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uitdoen</td><td class="pronunciation" data-label="النطق">أَوْتْدُون</td><td data-label="المعنى">يخلع / يطفئ</td><td class="dutch" data-label="المفرد (ik)">ik heb uitgedaan</td><td class="dutch" data-label="الجمع (we)">we hebben uitgedaan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">aandoen</td><td class="pronunciation" data-label="النطق">آنْدُون</td><td data-label="المعنى">يرتدي / يشغّل</td><td class="dutch" data-label="المفرد (ik)">ik heb aangedaan</td><td class="dutch" data-label="الجمع (we)">we hebben aangedaan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">ophalen</td><td class="pronunciation" data-label="النطق">أُوبْهَالَن</td><td data-label="المعنى">يستلم / يذهب ليحضر</td><td class="dutch" data-label="المفرد (ik)">ik heb opgehaald</td><td class="dutch" data-label="الجمع (we)">we hebben opgehaald</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">terugkomen</td><td class="pronunciation" data-label="النطق">تِرُوخْكُومَن</td><td data-label="المعنى">يعود</td><td class="dutch" data-label="المفرد (ik)">ik ben teruggekomen</td><td class="dutch" data-label="الجمع (we)">we zijn teruggekomen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">meenemen</td><td class="pronunciation" data-label="النطق">مَيْنِيمَن</td><td data-label="المعنى">يأخذ معه</td><td class="dutch" data-label="المفرد (ik)">ik heb meegenomen</td><td class="dutch" data-label="الجمع (we)">we hebben meegenomen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">terugbrengen</td><td class="pronunciation" data-label="النطق">تِرُوخْبْرِينخَن</td><td data-label="المعنى">يعيد / يرجع شيئًا</td><td class="dutch" data-label="المفرد (ik)">ik heb teruggebracht</td><td class="dutch" data-label="الجمع (we)">we hebben teruggebracht</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uitgaan</td><td class="pronunciation" data-label="النطق">أَوْتْخَان</td><td data-label="المعنى">يخرج</td><td class="dutch" data-label="المفرد (ik)">ik ben uitgegaan</td><td class="dutch" data-label="الجمع (we)">we zijn uitgegaan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">binnenkomen</td><td class="pronunciation" data-label="النطق">بِنَن كُومَن</td><td data-label="المعنى">يدخل</td><td class="dutch" data-label="المفرد (ik)">ik ben binnengekomen</td><td class="dutch" data-label="الجمع (we)">we zijn binnengekomen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">weggaan</td><td class="pronunciation" data-label="النطق">فِخْخَان</td><td data-label="المعنى">يغادر</td><td class="dutch" data-label="المفرد (ik)">ik ben weggegaan</td><td class="dutch" data-label="الجمع (we)">we zijn weggegaan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">opendoen</td><td class="pronunciation" data-label="النطق">أُوبَنْدُون</td><td data-label="المعنى">يفتح</td><td class="dutch" data-label="المفرد (ik)">ik heb opengedaan</td><td class="dutch" data-label="الجمع (we)">we hebben opengedaan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">dichtdoen</td><td class="pronunciation" data-label="النطق">دِخْتْدُون</td><td data-label="المعنى">يغلق</td><td class="dutch" data-label="المفرد (ik)">ik heb dichtgedaan</td><td class="dutch" data-label="الجمع (we)">we hebben dichtgedaan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">aanzetten</td><td class="pronunciation" data-label="النطق">آنْزِتَن</td><td data-label="المعنى">يشغّل</td><td class="dutch" data-label="المفرد (ik)">ik heb aangezet</td><td class="dutch" data-label="الجمع (we)">we hebben aangezet</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uitzetten</td><td class="pronunciation" data-label="النطق">أَوْتْزِتَن</td><td data-label="المعنى">يطفئ</td><td class="dutch" data-label="المفرد (ik)">ik heb uitgezet</td><td class="dutch" data-label="الجمع (we)">we hebben uitgezet</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">opruimen</td><td class="pronunciation" data-label="النطق">أُوبْرَاوْمَن</td><td data-label="المعنى">يرتب / ينظف المكان</td><td class="dutch" data-label="المفرد (ik)">ik heb opgeruimd</td><td class="dutch" data-label="الجمع (we)">we hebben opgeruimd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">afwassen</td><td class="pronunciation" data-label="النطق">أَفْوَسَن</td><td data-label="المعنى">يغسل الصحون</td><td class="dutch" data-label="المفرد (ik)">ik heb afgewassen</td><td class="dutch" data-label="الجمع (we)">we hebben afgewassen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">aankleden</td><td class="pronunciation" data-label="النطق">آنْكْلِيدَن</td><td data-label="المعنى">يلبس / يرتدي</td><td class="dutch" data-label="المفرد (ik)">ik heb me aangekleed</td><td class="dutch" data-label="الجمع (we)">we hebben ons aangekleed</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uitkleden</td><td class="pronunciation" data-label="النطق">أَوْتْكْلِيدَن</td><td data-label="المعنى">يخلع ملابسه</td><td class="dutch" data-label="المفرد (ik)">ik heb me uitgekleed</td><td class="dutch" data-label="الجمع (we)">we hebben ons uitgekleed</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">wakker worden</td><td class="pronunciation" data-label="النطق">فَاكَر فُورْدَن</td><td data-label="المعنى">يستيقظ</td><td class="dutch" data-label="المفرد (ik)">ik ben wakker geworden</td><td class="dutch" data-label="الجمع (we)">we zijn wakker geworden</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">inslapen</td><td class="pronunciation" data-label="النطق">أَنْسْلَابَن</td><td data-label="المعنى">يغفو / ينام</td><td class="dutch" data-label="المفرد (ik)">ik ben ingeslapen</td><td class="dutch" data-label="الجمع (we)">we zijn ingeslapen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uitrusten</td><td class="pronunciation" data-label="النطق">أَوْتْرُوسْتَن</td><td data-label="المعنى">يستريح</td><td class="dutch" data-label="المفرد (ik)">ik heb uitgerust</td><td class="dutch" data-label="الجمع (we)">we hebben uitgerust</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">ontbijten</td><td class="pronunciation" data-label="النطق">أُونْتْبَيْتَن</td><td data-label="المعنى">يتناول الفطور</td><td class="dutch" data-label="المفرد (ik)">ik heb ontbeten</td><td class="dutch" data-label="الجمع (we)">we hebben ontbeten</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">afzeggen</td><td class="pronunciation" data-label="النطق">أَفْزِخَن</td><td data-label="المعنى">يلغي موعدًا</td><td class="dutch" data-label="المفرد (ik)">ik heb afgezegd</td><td class="dutch" data-label="الجمع (we)">we hebben afgezegd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">afhalen</td><td class="pronunciation" data-label="النطق">أَفْهَالَن</td><td data-label="المعنى">يستلم</td><td class="dutch" data-label="المفرد (ik)">ik heb afgehaald</td><td class="dutch" data-label="الجمع (we)">we hebben afgehaald</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">aanvragen</td><td class="pronunciation" data-label="النطق">آنْفْرَاخَن</td><td data-label="المعنى">يقدم طلبًا</td><td class="dutch" data-label="المفرد (ik)">ik heb aangevraagd</td><td class="dutch" data-label="الجمع (we)">we hebben aangevraagd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">invullen</td><td class="pronunciation" data-label="النطق">أَنْفُلَن</td><td data-label="المعنى">يملأ (استمارة)</td><td class="dutch" data-label="المفرد (ik)">ik heb ingevuld</td><td class="dutch" data-label="الجمع (we)">we hebben ingevuld</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">ondertekenen</td><td class="pronunciation" data-label="النطق">أُونْدَرْتِيكَنَن</td><td data-label="المعنى">يوقّع</td><td class="dutch" data-label="المفرد (ik)">ik heb ondertekend</td><td class="dutch" data-label="الجمع (we)">we hebben ondertekend</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">controleren</td><td class="pronunciation" data-label="النطق">كُونْتْرُولِيرَن</td><td data-label="المعنى">يتحقق / يفحص</td><td class="dutch" data-label="المفرد (ik)">ik heb gecontroleerd</td><td class="dutch" data-label="الجمع (we)">we hebben gecontroleerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">regelen</td><td class="pronunciation" data-label="النطق">رِخِلَن</td><td data-label="المعنى">يرتب / ينظم</td><td class="dutch" data-label="المفرد (ik)">ik heb geregeld</td><td class="dutch" data-label="الجمع (we)">we hebben geregeld</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">bespreken</td><td class="pronunciation" data-label="النطق">بِسْبْرِيكَن</td><td data-label="المعنى">يناقش</td><td class="dutch" data-label="المفرد (ik)">ik heb besproken</td><td class="dutch" data-label="الجمع (we)">we hebben besproken</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">beslissen</td><td class="pronunciation" data-label="النطق">بِسْلِسَن</td><td data-label="المعنى">يقرر</td><td class="dutch" data-label="المفرد (ik)">ik heb beslist</td><td class="dutch" data-label="الجمع (we)">we hebben beslist</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">proberen</td><td class="pronunciation" data-label="النطق">بْرُوبِيرَن</td><td data-label="المعنى">يحاول</td><td class="dutch" data-label="المفرد (ik)">ik heb geprobeerd</td><td class="dutch" data-label="الجمع (we)">we hebben geprobeerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">veranderen</td><td class="pronunciation" data-label="النطق">فِيرَانْدَرَن</td><td data-label="المعنى">يغير</td><td class="dutch" data-label="المفرد (ik)">ik heb veranderd</td><td class="dutch" data-label="الجمع (we)">we hebben veranderd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verbeteren</td><td class="pronunciation" data-label="النطق">فِيرْبِيتَرَن</td><td data-label="المعنى">يحسن / يصحح</td><td class="dutch" data-label="المفرد (ik)">ik heb verbeterd</td><td class="dutch" data-label="الجمع (we)">we hebben verbeterd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">vergeten</td><td class="pronunciation" data-label="النطق">فِيرْخِيتَن</td><td data-label="المعنى">ينسى</td><td class="dutch" data-label="المفرد (ik)">ik ben vergeten</td><td class="dutch" data-label="الجمع (we)">we zijn vergeten</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">herinneren</td><td class="pronunciation" data-label="النطق">هِرِينَرَن</td><td data-label="المعنى">يتذكر</td><td class="dutch" data-label="المفرد (ik)">ik heb herinnerd</td><td class="dutch" data-label="الجمع (we)">we hebben herinnerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">vertellen</td><td class="pronunciation" data-label="النطق">فِيرْتِلَن</td><td data-label="المعنى">يخبر / يحكي</td><td class="dutch" data-label="المفرد (ik)">ik heb verteld</td><td class="dutch" data-label="الجمع (we)">we hebben verteld</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">beschrijven</td><td class="pronunciation" data-label="النطق">بِسْخْرَايْفَن</td><td data-label="المعنى">يصف</td><td class="dutch" data-label="المفرد (ik)">ik heb beschreven</td><td class="dutch" data-label="الجمع (we)">we hebben beschreven</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">bedoelen</td><td class="pronunciation" data-label="النطق">بِدُولَن</td><td data-label="المعنى">يقصد</td><td class="dutch" data-label="المفرد (ik)">ik heb bedoeld</td><td class="dutch" data-label="الجمع (we)">we hebben bedoeld</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">betekenen</td><td class="pronunciation" data-label="النطق">بِيتِيكَنَن</td><td data-label="المعنى">يعني</td><td class="dutch" data-label="المفرد (ik)">ik heb betekend</td><td class="dutch" data-label="الجمع (we)">we hebben betekend</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uitspreken</td><td class="pronunciation" data-label="النطق">أَوْتْسْبْرِيكَن</td><td data-label="المعنى">ينطق</td><td class="dutch" data-label="المفرد (ik)">ik heb uitgesproken</td><td class="dutch" data-label="الجمع (we)">we hebben uitgesproken</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">herhalen</td><td class="pronunciation" data-label="النطق">هِرْهَالَن</td><td data-label="المعنى">يكرر</td><td class="dutch" data-label="المفرد (ik)">ik heb herhaald</td><td class="dutch" data-label="الجمع (we)">we hebben herhaald</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">oefenen</td><td class="pronunciation" data-label="النطق">أُوفَنَن</td><td data-label="المعنى">يتتدرب</td><td class="dutch" data-label="المفرد (ik)">ik heb geoefend</td><td class="dutch" data-label="الجمع (we)">we hebben geoefend</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">studeren</td><td class="pronunciation" data-label="النطق">سْتُودِيرَن</td><td data-label="المعنى">يدرس</td><td class="dutch" data-label="المفرد (ik)">ik heb gestudeerd</td><td class="dutch" data-label="الجمع (we)">we hebben gestudeerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">nakijken</td><td class="pronunciation" data-label="النطق">نَاكَايْكَن</td><td data-label="المعنى">يراجع / يفحص</td><td class="dutch" data-label="المفرد (ik)">ik heb nagekeken</td><td class="dutch" data-label="الجمع (we)">we hebben nagekeken</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">slagen</td><td class="pronunciation" data-label="النطق">سْلَاخَن</td><td data-label="المعنى">ينجح</td><td class="dutch" data-label="المفرد (ik)">ik ben geslaagd</td><td class="dutch" data-label="الجمع (we)">we zijn geslaagd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">zakken</td><td class="pronunciation" data-label="النطق">زَكَن</td><td data-label="المعنى">يرسب</td><td class="dutch" data-label="المفرد (ik)">ik ben gezakt</td><td class="dutch" data-label="الجمع (we)">we zijn gezakt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verdienen</td><td class="pronunciation" data-label="النطق">فِيرْدِينَن</td><td data-label="المعنى">يكسب مالًا</td><td class="dutch" data-label="المفرد (ik)">ik heb verdiend</td><td class="dutch" data-label="الجمع (we)">we hebben verdiend</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">solliciteren</td><td class="pronunciation" data-label="النطق">سُولِيسِيتِيرَن</td><td data-label="المعنى">يتقدم لوظيفة</td><td class="dutch" data-label="المفرد (ik)">ik heb gesolliciteerd</td><td class="dutch" data-label="الجمع (we)">we hebben gesolliciteerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">werken aan</td><td class="pronunciation" data-label="النطق">وِيرْكَن آن</td><td data-label="المعنى">يعمل على</td><td class="dutch" data-label="المفرد (ik)">ik heb gewerkt aan</td><td class="dutch" data-label="الجمع (we)">we hebben gewerkt aan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">stoppen</td><td class="pronunciation" data-label="النطق">سْتُوبَن</td><td data-label="المعنى">يتوقف</td><td class="dutch" data-label="المفرد (ik)">ik ben gestopt</td><td class="dutch" data-label="الجمع (we)">we zijn gestopt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">doorgaan</td><td class="pronunciation" data-label="النطق">دُورْخَان</td><td data-label="المعنى">يستمر</td><td class="dutch" data-label="المفرد (ik)">ik ben doorgegaan</td><td class="dutch" data-label="الجمع (we)">we zijn doorgegaan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">beginnen met</td><td class="pronunciation" data-label="النطق">بِخِنَن مِت</td><td data-label="المعنى">يبدأ بـ</td><td class="dutch" data-label="المفرد (ik)">ik ben begonnen met</td><td class="dutch" data-label="الجمع (we)">we zijn begonnen met</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">opgeven</td><td class="pronunciation" data-label="النطق">أُوبْخِيفَن</td><td data-label="المعنى">يستسلم / يعطي</td><td class="dutch" data-label="المفرد (ik)">ik heb opgegeven</td><td class="dutch" data-label="الجمع (we)">we hebben opgegeven</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">volhouden</td><td class="pronunciation" data-label="النطق">فُولْهَاوْدَن</td><td data-label="المعنى">يستمر / يثابر</td><td class="dutch" data-label="المفرد (ik)">ik heb volgehouden</td><td class="dutch" data-label="الجمع (we)">we hebben volgehouden</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">meedoen</td><td class="pronunciation" data-label="النطق">مَيْدُون</td><td data-label="المعنى">يشارك</td><td class="dutch" data-label="المفرد (ik)">ik heb meegedaan</td><td class="dutch" data-label="الجمع (we)">we hebben meegedaan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">meewerken</td><td class="pronunciation" data-label="النطق">مَيْوِيرْكَن</td><td data-label="المعنى">يتعاون</td><td class="dutch" data-label="المفرد (ik)">ik heb meegewerkt</td><td class="dutch" data-label="الجمع (we)">we hebben meegewerkt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">helpen met</td><td class="pronunciation" data-label="النطق">هِيلبَن مِت</td><td data-label="المعنى">يساعد في</td><td class="dutch" data-label="المفرد (ik)">ik heb geholpen met</td><td class="dutch" data-label="الجمع (we)">we hebben geholpen met</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">zorgen voor</td><td class="pronunciation" data-label="النطق">زُورْخَن فُور</td><td data-label="المعنى">يعتني بـ</td><td class="dutch" data-label="المفرد (ik)">ik heb gezorgd voor</td><td class="dutch" data-label="الجمع (we)">we hebben gezorgd voor</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">passen</td><td class="pronunciation" data-label="النطق">بَسَن</td><td data-label="المعنى">يناسب / يجرب ملابس</td><td class="dutch" data-label="المفرد (ik)">ik heb gepast</td><td class="dutch" data-label="الجمع (we)">we hebben gepast</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">kiezen</td><td class="pronunciation" data-label="النطق">كِيزَن</td><td data-label="المعنى">يختار</td><td class="dutch" data-label="المفرد (ik)">ik heb gekozen</td><td class="dutch" data-label="الجمع (we)">we hebben gekozen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">besluiten</td><td class="pronunciation" data-label="النطق">بِسْلَاوْتَن</td><td data-label="المعنى">يقرر</td><td class="dutch" data-label="المفرد (ik)">ik heb besloten</td><td class="dutch" data-label="الجمع (we)">we hebben besloten</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">vergelijken</td><td class="pronunciation" data-label="النطق">فِيرْخِلَايْكَن</td><td data-label="المعنى">يقارن</td><td class="dutch" data-label="المفرد (ik)">ik heb vergeleken</td><td class="dutch" data-label="الجمع (we)">we hebben vergeleken</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">bestellen</td><td class="pronunciation" data-label="النطق">بِسْتِلَن</td><td data-label="المعنى">يطلب</td><td class="dutch" data-label="المفرد (ik)">ik heb besteld</td><td class="dutch" data-label="الجمع (we)">we hebben besteld</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">ruilen</td><td class="pronunciation" data-label="النطق">رَاوْلَن</td><td data-label="المعنى">يستبدل</td><td class="dutch" data-label="المفرد (ik)">ik heb geruild</td><td class="dutch" data-label="الجمع (we)">we hebben geruild</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">betalen voor</td><td class="pronunciation" data-label="النطق">بِيتَالَن فُور</td><td data-label="المعنى">يدفع مقابل</td><td class="dutch" data-label="المفرد (ik)">ik heb betaald voor</td><td class="dutch" data-label="الجمع (we)">we hebben betaald voor</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uitgeven</td><td class="pronunciation" data-label="النطق">أَوْتْخِيفَن</td><td data-label="المعنى">ينفق</td><td class="dutch" data-label="المفرد (ik)">ik heb uitgegeven</td><td class="dutch" data-label="الجمع (we)">we hebben uitgegeven</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">sparen</td><td class="pronunciation" data-label="النطق">سْبَارَن</td><td data-label="المعنى">يدخر</td><td class="dutch" data-label="المفرد (ik)">ik heb gespaard</td><td class="dutch" data-label="الجمع (we)">we hebben gespaard</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">lenen</td><td class="pronunciation" data-label="النطق">لِينَن</td><td data-label="المعنى">يستعير / يقترض</td><td class="dutch" data-label="المفرد (ik)">ik heb geleend</td><td class="dutch" data-label="الجمع (we)">we hebben geleend</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">terugbetalen</td><td class="pronunciation" data-label="النطق">تِرُوخْبِيتَالَن</td><td data-label="المعنى">يسدد</td><td class="dutch" data-label="المفرد (ik)">ik heb terugbetaald</td><td class="dutch" data-label="الجمع (we)">we hebben terugbetaald</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">kosten</td><td class="pronunciation" data-label="النطق">كُوسْتَن</td><td data-label="المعنى">يكلف</td><td class="dutch" data-label="المفرد (ik)">ik heb gekost</td><td class="dutch" data-label="الجمع (we)">we hebben gekost</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">besparen</td><td class="pronunciation" data-label="النطق">بِسْبَارَن</td><td data-label="المعنى">يوفر مالًا</td><td class="dutch" data-label="المفرد (ik)">ik heb bespaard</td><td class="dutch" data-label="الجمع (we)">we hebben bespaard</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verzenden</td><td class="pronunciation" data-label="النطق">فِيرْزِنْدَن</td><td data-label="المعنى">يرسل</td><td class="dutch" data-label="المفرد (ik)">ik heb verzonden</td><td class="dutch" data-label="الجمع (we)">we hebben verzonden</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">ontvangen</td><td class="pronunciation" data-label="النطق">أُونْتْفَانخَن</td><td data-label="المعنى">يستلم</td><td class="dutch" data-label="المفرد (ik)">ik heb ontvangen</td><td class="dutch" data-label="الجمع (we)">we hebben ontvangen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">bezorgen</td><td class="pronunciation" data-label="النطق">بِزُورْخَن</td><td data-label="المعنى">يوصل</td><td class="dutch" data-label="المفرد (ik)">ik heb bezorgd</td><td class="dutch" data-label="الجمع (we)">we hebben bezorgd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">reserveren</td><td class="pronunciation" data-label="النطق">غِيزِيرْفِيرَن</td><td data-label="المعنى">يحجز</td><td class="dutch" data-label="المفرد (ik)">ik heb gereserveerd</td><td class="dutch" data-label="الجمع (we)">we hebben gereserveerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">annuleren</td><td class="pronunciation" data-label="النطق">أَنُولِيرَن</td><td data-label="المعنى">يلغي</td><td class="dutch" data-label="المفرد (ik)">ik heb geannuleerd</td><td class="dutch" data-label="الجمع (we)">we hebben geannuleerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">vertrekken</td><td class="pronunciation" data-label="النطق">فِيرْتْرِكَن</td><td data-label="المعنى">يغادر</td><td class="dutch" data-label="المفرد (ik)">ik ben vertrokken</td><td class="dutch" data-label="الجمع (we)">we zijn vertrokken</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">aankomen</td><td class="pronunciation" data-label="النطق">آنْكُومَن</td><td data-label="المعنى">يصل</td><td class="dutch" data-label="المفرد (ik)">ik ben aangekomen</td><td class="dutch" data-label="الجمع (we)">we zijn aangekomen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">overstappen</td><td class="pronunciation" data-label="النطق">أُوفَرْسْتَابَن</td><td data-label="المعنى">يغير وسيلة النقل</td><td class="dutch" data-label="المفرد (ik)">ik ben overgestapt</td><td class="dutch" data-label="الجمع (we)">we zijn overgestapt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">instappen</td><td class="pronunciation" data-label="النطق">أَنْسْتَابَن</td><td data-label="المعنى">يصعد / يركب</td><td class="dutch" data-label="المفرد (ik)">ik ben ingestapt</td><td class="dutch" data-label="الجمع (we)">we zijn ingestapt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uitstappen</td><td class="pronunciation" data-label="النطق">أَوْتْسْتَابَن</td><td data-label="المعنى">ينزل</td><td class="dutch" data-label="المفرد (ik)">ik ben uitgestapt</td><td class="dutch" data-label="الجمع (we)">we zijn uitgestapt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verblijven</td><td class="pronunciation" data-label="النطق">فِيرْبْلَايْفَن</td><td data-label="المعنى">يقيم</td><td class="dutch" data-label="المفرد (ik)">ik heb verbleven</td><td class="dutch" data-label="الجمع (we)">we hebben verbleven</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">overnachten</td><td class="pronunciation" data-label="النطق">أُوفَرْنَاخْتَن</td><td data-label="المعنى">يقضي الليل</td><td class="dutch" data-label="المفرد (ik)">ik heb overnacht</td><td class="dutch" data-label="الجمع (we)">we hebben overnacht</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">bezoeken</td><td class="pronunciation" data-label="النطق">بِزُوكَن</td><td data-label="المعنى">يزور</td><td class="dutch" data-label="المفرد (ik)">ik heb bezocht</td><td class="dutch" data-label="الجمع (we)">we hebben bezocht</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">rondlopen</td><td class="pronunciation" data-label="النطق">رُونْدْلُوبَن</td><td data-label="المعنى">يتجول</td><td class="dutch" data-label="المفرد (ik)">ik heb rondgelopen</td><td class="dutch" data-label="الجمع (we)">we hebben rondgelopen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verdwalen</td><td class="pronunciation" data-label="النطق">فِيرْدْوَالَن</td><td data-label="المعنى">يضل الطريق</td><td class="dutch" data-label="المفرد (ik)">ik ben verdwaald</td><td class="dutch" data-label="الجمع (we)">we zijn verdwaald</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">volgen</td><td class="pronunciation" data-label="النطق">فُولْخَن</td><td data-label="المعنى">يتبع</td><td class="dutch" data-label="المفرد (ik)">ik heb gevolgd</td><td class="dutch" data-label="الجمع (we)">we hebben gevolgd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">afwijken</td><td class="pronunciation" data-label="النطق">أَفْوَايْكَن</td><td data-label="المعنى">ينحرف / يخرج عن</td><td class="dutch" data-label="المفرد (ik)">ik ben afgeweken</td><td class="dutch" data-label="الجمع (we)">we zijn afgeweken</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">bereiken</td><td class="pronunciation" data-label="النطق">بِرَايْكَن</td><td data-label="المعنى">يصل إلى</td><td class="dutch" data-label="المفرد (ik)">ik heb bereikt</td><td class="dutch" data-label="الجمع (we)">we hebben bereikt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">oversteken</td><td class="pronunciation" data-label="النطق">أُوفَرْسْتِيكَن</td><td data-label="المعنى">يعبر</td><td class="dutch" data-label="المفرد (ik)">ik ben overgestoken</td><td class="dutch" data-label="الجمع (we)">we zijn overgestoken</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">teruggaan</td><td class="pronunciation" data-label="النطق">تِرُوخْخَان</td><td data-label="المعنى">يعود</td><td class="dutch" data-label="المفرد (ik)">ik ben teruggegaan</td><td class="dutch" data-label="الجمع (we)">we zijn teruggegaan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">omkeren</td><td class="pronunciation" data-label="النطق">أُمْكِيرَن</td><td data-label="المعنى">يرجع / يستدير</td><td class="dutch" data-label="المفرد (ik)">ik ben omgekeerd</td><td class="dutch" data-label="الجمع (we)">we zijn omgekeerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">meegaan</td><td class="pronunciation" data-label="النطق">مَيْخَان</td><td data-label="المعنى">يذهب مع</td><td class="dutch" data-label="المفرد (ik)">ik ben meegegaan</td><td class="dutch" data-label="الجمع (we)">we zijn meegegaan</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">meekomen</td><td class="pronunciation" data-label="النطق">مَيْكُومَن</td><td data-label="المعنى">يأتي مع</td><td class="dutch" data-label="المفرد (ik)">ik ben meegekomen</td><td class="dutch" data-label="الجمع (we)">we zijn meegekomen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">wegbrengen</td><td class="pronunciation" data-label="النطق">فِخْبْرِينخَن</td><td data-label="المعنى">يوصل / يأخذ بعيدًا</td><td class="dutch" data-label="المفرد (ik)">ik heb weggebracht</td><td class="dutch" data-label="الجمع (we)">we hebben weggebracht</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">ontmoeten</td><td class="pronunciation" data-label="النطق">أُونْتْمُوتَن</td><td data-label="المعنى">يقابل</td><td class="dutch" data-label="المفرد (ik)">ik heb ontmoet</td><td class="dutch" data-label="الجمع (we)">we hebben ontmoet</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">kennismaken</td><td class="pronunciation" data-label="النطق">كِينِسْمَاكَن</td><td data-label="المعنى">يتعرف على شخص</td><td class="dutch" data-label="المفرد (ik)">ik heb kennisgemaakt</td><td class="dutch" data-label="الجمع (we)">we hebben kennisgemaakt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">feliciteren</td><td class="pronunciation" data-label="النطق">فِيلِيسِيتِيرَن</td><td data-label="المعنى">يهنئ</td><td class="dutch" data-label="المفرد (ik)">ik heb gefeliciteerd</td><td class="dutch" data-label="الجمع (we)">we hebben gefeliciteerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">bedanken</td><td class="pronunciation" data-label="النطق">بِدَانْكَن</td><td data-label="المعنى">يشكر</td><td class="dutch" data-label="المفرد (ik)">ik heb bedankt</td><td class="dutch" data-label="الجمع (we)">we hebben bedankt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">vergeven</td><td class="pronunciation" data-label="النطق">فِيرْخِيفَن</td><td data-label="المعنى">يسامح</td><td class="dutch" data-label="المفرد (ik)">ik heb vergeven</td><td class="dutch" data-label="الجمع (we)">we hebben vergeven</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">vertrouwen</td><td class="pronunciation" data-label="النطق">فِيرْتْرَاوْوَن</td><td data-label="المعنى">يثق</td><td class="dutch" data-label="المفرد (ik)">ik heb vertrouwd</td><td class="dutch" data-label="الجمع (we)">we hebben vertrouwd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">geloven in</td><td class="pronunciation" data-label="النطق">خِلُوفَن أَنْ</td><td data-label="المعنى">يؤمن بـ</td><td class="dutch" data-label="المفرد (ik)">ik heb geloofd in</td><td class="dutch" data-label="الجمع (we)">we hebben geloofd in</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">twijfelen</td><td class="pronunciation" data-label="النطق">تْفَايْفَلَن</td><td data-label="المعنى">يشك / يتردد</td><td class="dutch" data-label="المفرد (ik)">ik heb getwijfeld</td><td class="dutch" data-label="الجمع (we)">we hebben getwijfeld</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">hopen</td><td class="pronunciation" data-label="النطق">هُوبَن</td><td data-label="المعنى">يأمل</td><td class="dutch" data-label="المفرد (ik)">ik heb gehoopt</td><td class="dutch" data-label="الجمع (we)">we hebben gehoopt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verwachten</td><td class="pronunciation" data-label="النطق">فِيرْفَاخْتَن</td><td data-label="المعنى">يتوقع</td><td class="dutch" data-label="المفرد (ik)">ik heb verwacht</td><td class="dutch" data-label="الجمع (we)">we hebben verwacht</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">missen</td><td class="pronunciation" data-label="النطق">مِسَن</td><td data-label="المعنى">يفتقد</td><td class="dutch" data-label="المفرد (ik)">ik heb gemist</td><td class="dutch" data-label="الجمع (we)">we hebben gemist</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">houden van</td><td class="pronunciation" data-label="النطق">هَاوْدَن فَان</td><td data-label="المعنى">يحب</td><td class="dutch" data-label="المفرد (ik)">ik heb gehouden van</td><td class="dutch" data-label="الجمع (we)">we hebben gehouden van</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">genieten</td><td class="pronunciation" data-label="النطق">خِنِيتَن</td><td data-label="المعنى">يستمتع</td><td class="dutch" data-label="المفرد (ik)">ik heb genoten</td><td class="dutch" data-label="الجمع (we)">we hebben genoten</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">voelen</td><td class="pronunciation" data-label="النطق">فُولَن</td><td data-label="المعنى">يشعر</td><td class="dutch" data-label="المفرد (ik)">ik heb gevoeld</td><td class="dutch" data-label="الجمع (we)">we hebben gevoeld</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">lachen</td><td class="pronunciation" data-label="النطق">لَاخَن</td><td data-label="المعنى">يضحك</td><td class="dutch" data-label="المفرد (ik)">ik heb gelachen</td><td class="dutch" data-label="الجمع (we)">we hebben gelachen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">huilen</td><td class="pronunciation" data-label="النطق">هَاوْلَن</td><td data-label="المعنى">يبكي</td><td class="dutch" data-label="المفرد (ik)">ik heb gehuild</td><td class="dutch" data-label="الجمع (we)">we hebben gehuild</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">glimlachen</td><td class="pronunciation" data-label="النطق">خْلِمْلَاخَن</td><td data-label="المعنى">يبتسم</td><td class="dutch" data-label="المفرد (ik)">ik heb geglimlacht</td><td class="dutch" data-label="الجمع (we)">we hebben geglimlacht</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verklaren</td><td class="pronunciation" data-label="النطق">فِيرْكْلَارَن</td><td data-label="المعنى">يشرح / يصرح</td><td class="dutch" data-label="المفرد (ik)">ik heb verklaard</td><td class="dutch" data-label="الجمع (we)">we hebben verklaard</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">vertalen</td><td class="pronunciation" data-label="النطق">فِيرْتَالَن</td><td data-label="المعنى">يترجم</td><td class="dutch" data-label="المفرد (ik)">ik heb vertaald</td><td class="dutch" data-label="الجمع (we)">we hebben vertaald</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">opmerken</td><td class="pronunciation" data-label="النطق">أُوبْمِيرْكَن</td><td data-label="المعنى">يلاحظ</td><td class="dutch" data-label="المفرد (ik)">ik heb opgemerkt</td><td class="dutch" data-label="الجمع (we)">we hebben opgemerkt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">begrijpen</td><td class="pronunciation" data-label="النطق">بِخْغَايْبَن</td><td data-label="المعنى">يفهم</td><td class="dutch" data-label="المفرد (ik)">ik heb begrepen</td><td class="dutch" data-label="الجمع (we)">we hebben begrepen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">onthouden</td><td class="pronunciation" data-label="النطق">أُونْتْهَاوْدَن</td><td data-label="المعنى">يتذكر / يحفظ</td><td class="dutch" data-label="المفرد (ik)">ik heb onthouden</td><td class="dutch" data-label="الجمع (we)">we hebben onthouden</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">herkennen</td><td class="pronunciation" data-label="النطق">هِرْكِينَن</td><td data-label="المعنى">يتعرف على</td><td class="dutch" data-label="المفرد (ik)">ik heb herkend</td><td class="dutch" data-label="الجمع (we)">we hebben herkend</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verwarren</td><td class="pronunciation" data-label="النطق">فِيرْوَارَن</td><td data-label="المعنى">يخلط</td><td class="dutch" data-label="المفرد (ik)">ik heb verward</td><td class="dutch" data-label="الجمع (we)">we hebben verward</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verwijzen</td><td class="pronunciation" data-label="النطق">فِيرْوَايْزَن</td><td data-label="المعنى">يشير إلى</td><td class="dutch" data-label="المفرد (ik)">ik heb verwezen</td><td class="dutch" data-label="الجمع (we)">we hebben verwezen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">vermelden</td><td class="pronunciation" data-label="النطق">فِيرْمِلْدَن</td><td data-label="المعنى">يذكر</td><td class="dutch" data-label="المفرد (ik)">ik heb vermeld</td><td class="dutch" data-label="الجمع (we)">we hebben vermeld</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">melden</td><td class="pronunciation" data-label="النطق">مِيلْدَن</td><td data-label="المعنى">يبلغ / يسجل</td><td class="dutch" data-label="المفرد (ik)">ik heb gemeld</td><td class="dutch" data-label="الجمع (we)">we hebben gemeld</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">waarschuwen</td><td class="pronunciation" data-label="النطق">فَارْسْخَاوْوَن</td><td data-label="المعنى">يحذر</td><td class="dutch" data-label="المفرد (ik)">ik heb gewaarschuwd</td><td class="dutch" data-label="الجمع (we)">we hebben gewaarschuwd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">adviseren</td><td class="pronunciation" data-label="النطق">أَدْفِيزِيرَن</td><td data-label="المعنى">ينصح</td><td class="dutch" data-label="المفرد (ik)">ik heb geadviseerd</td><td class="dutch" data-label="الجمع (we)">we hebben geadviseerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">aanraden</td><td class="pronunciation" data-label="النطق">آنْرَادَن</td><td data-label="المعنى">ينصح بـ</td><td class="dutch" data-label="المفرد (ik)">ik heb aangeraden</td><td class="dutch" data-label="الجمع (we)">we hebben aangeraden</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">afwegen</td><td class="pronunciation" data-label="النطق">أَفْفِخَن</td><td data-label="المعنى">يوازن / يدرس الخيارات</td><td class="dutch" data-label="المفرد (ik)">ik heb afgewogen</td><td class="dutch" data-label="الجمع (we)">we hebben afgewogen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">nadenken</td><td class="pronunciation" data-label="النطق">نَادَنْكَن</td><td data-label="المعنى">يفكر</td><td class="dutch" data-label="المفرد (ik)">ik heb nagedacht</td><td class="dutch" data-label="الجمع (we)">we hebben nagedacht</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">heroverwegen</td><td class="pronunciation" data-label="النطق">هِيرُوفَرْوِخَن</td><td data-label="المعنى">يعيد التفكير</td><td class="dutch" data-label="المفرد (ik)">ik heb heroverwogen</td><td class="dutch" data-label="الجمع (we)">we hebben heroverwogen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">schoonmaken</td><td class="pronunciation" data-label="النطق">سْخُونْمَاكَن</td><td data-label="المعنى">ينظف</td><td class="dutch" data-label="المفرد (ik)">ik heb schoongemaakt</td><td class="dutch" data-label="الجمع (we)">we hebben schoongemaakt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">wassen</td><td class="pronunciation" data-label="النطق">وَسَن</td><td data-label="المعنى">يغسل</td><td class="dutch" data-label="المفرد (ik)">ik heb gewassen</td><td class="dutch" data-label="الجمع (we)">we hebben gewassen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">strijken</td><td class="pronunciation" data-label="النطق">سْتْغَايْكَن</td><td data-label="المعنى">يكوي</td><td class="dutch" data-label="المفرد (ik)">ik heb gestreken</td><td class="dutch" data-label="الجمع (we)">we hebben gestreken</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">stofzuigen</td><td class="pronunciation" data-label="النطق">سْتُوفْزَاوْخَن</td><td data-label="المعنى">يكنس بالمكنسة الكهربائية</td><td class="dutch" data-label="المفرد (ik)">ik heb gestofzuigd</td><td class="dutch" data-label="الجمع (we)">we hebben gestofzuigd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">repareren</td><td class="pronunciation" data-label="النطق">غِيبَارِيرَن</td><td data-label="المعنى">يصلح</td><td class="dutch" data-label="المفرد (ik)">ik heb gerepareerd</td><td class="dutch" data-label="الجمع (we)">we hebben gerepareerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">bouwen</td><td class="pronunciation" data-label="النطق">بَاوْوَن</td><td data-label="المعنى">يبني</td><td class="dutch" data-label="المفرد (ik)">ik heb gebouwd</td><td class="dutch" data-label="الجمع (we)">we hebben gebouwd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">inrichten</td><td class="pronunciation" data-label="النطق">أَنْغِخْتَن</td><td data-label="المعنى">يؤثث / يرتب</td><td class="dutch" data-label="المفرد (ik)">ik heb ingericht</td><td class="dutch" data-label="الجمع (we)">we hebben ingericht</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verwarmen</td><td class="pronunciation" data-label="النطق">فِيرْوَارْمَن</td><td data-label="المعنى">يدفئ</td><td class="dutch" data-label="المفرد (ik)">ik heb verwarmd</td><td class="dutch" data-label="الجمع (we)">we hebben verwarmd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">afkoelen</td><td class="pronunciation" data-label="النطق">أَفْكُولَن</td><td data-label="المعنى">يبرد</td><td class="dutch" data-label="المفرد (ik)">ik ben afgekoeld</td><td class="dutch" data-label="الجمع (we)">we zijn afgekoeld</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">opladen</td><td class="pronunciation" data-label="النطق">أُوبْلَادَن</td><td data-label="المعنى">يشحن</td><td class="dutch" data-label="المفرد (ik)">ik heb opgeladen</td><td class="dutch" data-label="الجمع (we)">we hebben opgeladen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">downloaden</td><td class="pronunciation" data-label="النطق">دَاوْنْلُودَن</td><td data-label="المعنى">ينزّل</td><td class="dutch" data-label="المفرد (ik)">ik heb gedownload</td><td class="dutch" data-label="الجمع (we)">we hebben gedownload</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">uploaden</td><td class="pronunciation" data-label="النطق">أَوْبْلُودَن</td><td data-label="المعنى">يرفع ملفًا</td><td class="dutch" data-label="المفرد (ik)">ik heb geüpload</td><td class="dutch" data-label="الجمع (we)">we hebben geüpload</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">afdrukken</td><td class="pronunciation" data-label="النطق">أَفْدْرُوكَن</td><td data-label="المعنى">يطبع</td><td class="dutch" data-label="المفرد (ik)">ik heb afgedrukt</td><td class="dutch" data-label="الجمع (we)">we hebben afgedrukt</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">opslaan</td><td class="pronunciation" data-label="النطق">أُوبْسْلَان</td><td data-label="المعنى">يحفظ</td><td class="dutch" data-label="المفرد (ik)">ik heb opgeslagen</td><td class="dutch" data-label="الجمع (we)">we hebben opgeslagen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">verwijderen</td><td class="pronunciation" data-label="النطق">فِيرْوَايْدَرَن</td><td data-label="المعنى">يحذف / يزيل</td><td class="dutch" data-label="المفرد (ik)">ik heb verwijderd</td><td class="dutch" data-label="الجمع (we)">we hebben verwijderd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">installeren</td><td class="pronunciation" data-label="النطق">أَنْسْتَالِيرَن</td><td data-label="المعنى">يثبت / ينصب</td><td class="dutch" data-label="المفرد (ik)">ik heb geïnstalleerd</td><td class="dutch" data-label="الجمع (we)">we hebben geïnstalleerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">rusten</td><td class="pronunciation" data-label="النطق">رُوسْتَن</td><td data-label="المعنى">يستريح</td><td class="dutch" data-label="المفرد (ik)">ik heb gerust</td><td class="dutch" data-label="الجمع (we)">we hebben gerust</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">zorgen</td><td class="pronunciation" data-label="النطق">زُورْخَن</td><td data-label="المعنى">يهتم</td><td class="dutch" data-label="المفرد (ik)">ik heb gezorgd</td><td class="dutch" data-label="الجمع (we)">we hebben gezorgd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">serveren</td><td class="pronunciation" data-label="النطق">سِيرْفِيرَن</td><td data-label="المعنى">يقدم (طعام/شراب)</td><td class="dutch" data-label="المفرد (ik)">ik heb geserveerd</td><td class="dutch" data-label="الجمع (we)">we hebben geserveerd</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">koken voor</td><td class="pronunciation" data-label="النطق">كُوكَن فُور</td><td data-label="المعنى">يطبخ لـ</td><td class="dutch" data-label="المفرد (ik)">ik heb gekookt voor</td><td class="dutch" data-label="الجمع (we)">we hebben gekookt voor</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">winnen van</td><td class="pronunciation" data-label="النطق">وِينَن فَان</td><td data-label="المعنى">يفوز على</td><td class="dutch" data-label="المفرد (ik)">ik heb gewonnen van</td><td class="dutch" data-label="الجمع (we)">we hebben gewonnen van</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">zuigen</td><td class="pronunciation" data-label="النطق">زَاوْخَن</td><td data-label="المعنى">يمتص</td><td class="dutch" data-label="المفرد (ik)">ik heb gezogen</td><td class="dutch" data-label="الجمع (we)">we hebben gezogen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">zwaaien</td><td class="pronunciation" data-label="النطق">زْوَايَن</td><td data-label="المعنى">يلوح</td><td class="dutch" data-label="المفرد (ik)">ik heb gezwaaid</td><td class="dutch" data-label="الجمع (we)">we hebben gezwaaid</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">zweten</td><td class="pronunciation" data-label="النطق">زْوِيتَن</td><td data-label="المعنى">يتعرق</td><td class="dutch" data-label="المفرد (ik)">ik heb gezweet</td><td class="dutch" data-label="الجمع (we)">we hebben gezweet</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">zwijgen</td><td class="pronunciation" data-label="النطق">زْوَايْخَن</td><td data-label="المعنى">يلتزم الصمت</td><td class="dutch" data-label="المفرد (ik)">ik heb gezwegen</td><td class="dutch" data-label="الجمع (we)">we hebben gezwegen</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">teruggeven</td><td class="pronunciation" data-label="النطق">تِرُوخْخِيفَن</td><td data-label="المعنى">يعيد (شيئًا)</td><td class="dutch" data-label="المفرد (ik)">ik heb teruggegeven</td><td class="dutch" data-label="الجمع (we)">we hebben teruggegeven</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">terugvinden</td><td class="pronunciation" data-label="النطق">تِرُوخْفِينْدَن</td><td data-label="المعنى">يعثر عليه مجددًا</td><td class="dutch" data-label="المفرد (ik)">ik heb teruggevonden</td><td class="dutch" data-label="الجمع (we)">we hebben teruggevonden</td></tr>
+                <tr><td class="dutch infinitive" data-label="المصدر">vertrekken uit</td><td class="pronunciation" data-label="النطق">فِيرْتْرِكَن أَوْت</td><td data-label="المعنى">يغادر من</td><td class="dutch" data-label="المفرد (ik)">ik ben vertrokken uit</td><td class="dutch" data-label="الجمع (we)">we zijn vertrokken uit</td></tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-
-<h2>Shafts-Names-Mahayel</h2>
-
-<table id="myTable">
-    <tr>
-        <th>Index</th>
-        <th>Location</th>
-        <th>Description</th>
-    </tr>
-    <tr><td>1</td><td>KP 5+196</td><td>VENT SHAFT No 1</td></tr>
-    <tr><td>2</td><td>KP 7+777</td><td>DRAIN SHAFT No 1</td></tr>
-    <tr><td>3</td><td>KP 8+000</td><td>VENT SHAFT No 2</td></tr>
-    <tr><td>4</td><td>KP 11+027</td><td>VENT SHAFT no 3</td></tr>
-    <tr><td>5</td><td>KP 12+972</td><td>WASH OUT SHAFT No 1</td></tr>
-    <tr><td>6</td><td>KP 14+959</td><td>DRAIN SHAFT No 2</td></tr>
-    <tr><td>7</td><td>KP 16+200</td><td>VENT SHAFT No 4</td></tr>
-    <tr><td>8</td><td>KP 18+693</td><td>VENT SHAFT No 5</td></tr>
-    <tr><td>9</td><td>KP 21+074</td><td>DRAIN SHAFT No 3</td></tr>
-    <tr><td>10</td><td>KP 21+758</td><td>VENT SHAFT No 6</td></tr>
-    <tr><td>11</td><td>KP 24+612</td><td>DRAIN SHAFT No 4</td></tr>
-    <tr><td>12</td><td>KP 27+008</td><td>VENT SHAFT No 7</td></tr>
-    <tr><td>13</td><td>KP 27+384</td><td>DRAIN SHAFT No 5</td></tr>
-    <tr><td>14</td><td>KP 27+333</td><td>VENT SHAFT No 8</td></tr>
-    <tr><td>15</td><td>KP 27+614</td><td>VENT SHAFT No 9</td></tr>
-    <tr><td>16</td><td>KP 27+705</td><td>DRAIN SHAFT No 6</td></tr>
-    <tr><td>17</td><td>KP 30+340</td><td>VENT SHAFT No 10</td></tr>
-    <tr><td>18</td><td>KP 30+363</td><td>DRAIN SHAFT No 7</td></tr>
-    <tr><td>19</td><td>KP 30+800</td><td>DRAIN SHAFT No 8</td></tr>
-    <tr><td>20</td><td>KP 32+845</td><td>VENT SHAFT No 11</td></tr>
-    <tr><td>21</td><td>KP 35+763</td><td>VENT SHAFT No 12</td></tr>
-    <tr><td>22</td><td>KP 38+874</td><td>VENT SHAFT No 13</td></tr>
-    <tr><td>23</td><td>KP 39+506</td><td>DRAIN SHAFT No 9</td></tr>
-    <tr><td>24</td><td>KP 41+900</td><td>DRAIN SHAFT No 10</td></tr>
-    <tr><td>25</td><td>KP 45+479</td><td>VENT SHAFT No 14</td></tr>
-    <tr><td>26</td><td>KP 47+824</td><td>DRAIN SHAFT No 11</td></tr>
-    <tr><td>27</td><td>KP 53+213</td><td>DRAIN SHAFT No 12</td></tr>
-    <tr><td>28</td><td>KP 55+708</td><td>VENT SHAFT No 15</td></tr>
-    <tr><td>29</td><td>KP 55+970</td><td>DRAIN SHAFT No 13</td></tr>
-    <tr><td>30</td><td>KP 56+283</td><td>VENT SHAFT No 16</td></tr>
-    <tr><td>31</td><td>KP 56+429</td><td>WASHOUT SHAFT No 2</td></tr>
-    <tr><td>32</td><td>KP 57+434</td><td>VENT SHAFT No 17</td></tr>
-    <tr><td>33</td><td>KP 59+448</td><td>VENT SHAFT No 18</td></tr>
-    <tr><td>34</td><td>KP 59+609</td><td>DRAIN SHAFT No 14</td></tr>
-    <tr><td>35</td><td>KP 59+900</td><td>VENT SHAFT No 19</td></tr>
-    <tr><td>36</td><td>KP 60+041</td><td>DRAIN SHAFT No 15</td></tr>
-    <tr><td>37</td><td>KP 64+917</td><td>VENT SHAFT No 20</td></tr>
-    <tr><td>38</td><td>KP 65+204</td><td>DRAIN SHAFT No 16</td></tr>
-    <tr><td>39</td><td>KP 65+587</td><td>VENT SHAFT No 21</td></tr>
-    <tr><td>40</td><td>KP 66+112</td><td>VENT SHAFT No 22</td></tr>
-    <tr><td>41</td><td>KP 66+533</td><td>VENT SHAFT No 23</td></tr>
-    <tr><td>42</td><td>KP 67+028</td><td>VENT SHAFT No 24</td></tr>
-    <tr><td>43</td><td>KP 67+167</td><td>DRAIN SHAFT No 17</td></tr>
-    <tr><td>44</td><td>KP 67+200</td><td>DRAIN SHAFT No 18</td></tr>
-    <tr><td>45</td><td>KP 67+350</td><td>VENT SHAFT No 25</td></tr>
-    <tr><td>46</td><td>KP 67+817</td><td>VENT SHAFT No 26</td></tr>
-    <tr><td>47</td><td>KP 67+907</td><td>DRAIN SHAFT No 19</td></tr>
-    <tr><td>48</td><td>KP 68+425</td><td>VENT SHAFT No 27</td></tr>
-    <tr><td>49</td><td>KP 68+853</td><td>VENT SHAFT No 28</td></tr>
-    <tr><td>50</td><td>KP 68+900</td><td>Line Valve SHAFT No 01</td></tr>
-    <tr><td>51</td><td>KP 69+008</td><td>DRAIN SHAFT No 20</td></tr>
-    <tr><td>52</td><td>KP 70+149</td><td>VENT SHAFT No 29</td></tr>
-    <tr><td>53</td><td>KP 70+229</td><td>DRAIN SHAFT No 21</td></tr>
-    <tr><td>54</td><td>KP 71+162</td><td>VENT SHAFT No 30</td></tr>
-    <tr><td>55</td><td>KP 71+263</td><td>DRAIN SHAFT No 22</td></tr>
-    <tr><td>56</td><td>KP 72+492</td><td>DRAIN SHAFT No 23</td></tr>
-    <tr><td>57</td><td>KP 74+111</td><td>VENT SHAFT No 31</td></tr>
-    <tr><td>58</td><td>KP 74+217</td><td>DRAIN SHAFT No 24</td></tr>
-    <tr><td>59</td><td>KP 74+790</td><td>VENT SHAFT No 32</td></tr>
-    <tr><td>60</td><td>KP 74+916</td><td>DRAIN SHAFT No 25</td></tr>
-    <tr><td>61</td><td>KP 79+106</td><td>VENT SHAFT No 33</td></tr>
-    <tr><td>62</td><td>KP 79+500</td><td>DRAIN SHAFT No 26</td></tr>
-    <tr><td>63</td><td>KP 79+515</td><td>VENT SHAFT No 34</td></tr>
-    <tr><td>64</td><td>KP 79+629</td><td>DRAIN SHAFT No 27</td></tr>
-    <tr><td>65</td><td>KP 80+711</td><td>VENT SHAFT No 35</td></tr>
-    <tr><td>66</td><td>KP 81+005</td><td>VENT SHAFT No 36</td></tr>
-    <tr><td>67</td><td>KP 81+229</td><td>DRAIN SHAFT No 28</td></tr>
-    <tr><td>68</td><td>KP 81+302</td><td>VENT SHAFT No 37</td></tr>
-    <tr><td>69</td><td>KP 81+325</td><td>DRAIN SHAFT No 29</td></tr>
-    <tr><td>70</td><td>KP 81+813</td><td>VACCUM SHAFT No 01 (24"&6")</td></tr>
-    <tr><td>71</td><td>KP 82+606</td><td>VENT SHAFT No 38</td></tr>
-    <tr><td>72</td><td>KP 83+077</td><td>DRAIN SHAFT No 30</td></tr>
-    <tr><td>73</td><td>KP 83+759</td><td>VENT SHAFT No 39</td></tr>
-    <tr><td>74</td><td>KP 84+163</td><td>VACCUM SHAFT No 02</td></tr>
-    <tr><td>75</td><td>KP 84+586</td><td>DRAIN SHAFT No 31</td></tr>
-    <tr><td>76</td><td>KP 85+966</td><td>VACCUM SHAFT No 03</td></tr>
-    <tr><td>77</td><td>KP 87+146</td><td>VENT SHAFT No 40</td></tr>
-    <tr><td>78</td><td>KP 87+351</td><td>DRAIN SHAFT No 32</td></tr>
-    <tr><td>79</td><td>KP 92+585</td><td>VENT SHAFT No 41</td></tr>
-    <tr><td>80</td><td>KP 96+355</td><td>DRAIN SHAFT No 33</td></tr>
-    <tr><td>81</td><td>KP 96+476</td><td>VENT SHAFT No 42</td></tr>
-    <tr><td>82</td><td>KP 98+294</td><td>DRAIN SHAFT No 34</td></tr>
-    <tr><td>83</td><td>KP 98+830</td><td>VENT SHAFT No 43</td></tr>
-    <tr><td>84</td><td>KP 99+957</td><td>DRAIN SHAFT No 35</td></tr>
-    <tr><td>85</td><td>KP 100+032</td><td>VENT SHAFT No 44</td></tr>
-    <tr><td>86</td><td>KP 100+490</td><td>DRAIN SHAFT No 36</td></tr>
-    <tr><td>87</td><td>KP 102+800</td><td>VENT SHAFT No 45</td></tr>
-    <tr><td>88</td><td>KP 103+697</td><td>DRAIN SHAFT No 37</td></tr>
-    <tr><td>89</td><td>KP 103+700</td><td>VENT SHAFT No 46</td></tr>
-    <tr><td>90</td><td>KP 104+094</td><td>DRAIN SHAFT No 38</td></tr>
-    <tr><td>91</td><td>KP 106+633</td><td>DRAIN SHAFT No 39</td></tr>
-    <tr><td>92</td><td>KP 106+740</td><td>VENT SHAFT No 47</td></tr>
-    <tr><td>93</td><td>KP 107+874</td><td>DRAIN SHAFT No 40</td></tr>
-    <tr><td>94</td><td>KP 107+944</td><td>VENT SHAFT No 48</td></tr>
-    <tr><td>95</td><td>KP 108+922</td><td>DRAIN SHAFT No 41</td></tr>
-    <tr><td>96</td><td>KP 109+147</td><td>VENT SHAFT No 49</td></tr>
-    <tr><td>97</td><td>KP 109+346</td><td>DRAIN SHAFT No 42</td></tr>
-    <tr><td>98</td><td>KP 110+539</td><td>VENT SHAFT No 50</td></tr>
-    <tr><td>99</td><td>KP 112+858</td><td>DRAIN SHAFT No 43</td></tr>
-    <tr><td>100</td><td>KP 115+165</td><td>VENT SHAFT No 51</td></tr>
-    <tr><td>101</td><td>KP 115+171</td><td>DRAIN SHAFT No 44</td></tr>
-    <tr><td>102</td><td>KP 116+218</td><td>VENT SHAFT No 52</td></tr>
-    <tr><td>103</td><td>KP 116+750</td><td>DRAIN SHAFT No 45</td></tr>
-    <tr><td>104</td><td>KP 117+454</td><td>VENT SHAFT No 53</td></tr>
-    <tr><td>105</td><td>KP 118+309</td><td>WASH OUT SHAFT No 3</td></tr>
-    <tr><td>106</td><td>KP 118+828</td><td>VENT SHAFT No 54</td></tr>
-    <tr><td>107</td><td>KP 119+176</td><td>DRAIN SHAFT No 46</td></tr>
-    <tr><td>108</td><td>KP 119+176</td><td>DRAIN SHAFT No 47</td></tr>
-    <tr><td>109</td><td>KP 119+893</td><td>DRAIN SHAFT No 48</td></tr>
-    <tr><td>110</td><td>KP 120+148</td><td>DRAIN SHAFT No 49</td></tr>
-    <tr><td>111</td><td>KP 120+387</td><td>VENT SHAFT No 55</td></tr>
-    <tr><td>112</td><td>KP 120+440</td><td>DRAIN SHAFT No 50</td></tr>
-    <tr><td>113</td><td>KP 120+779</td><td>VENT SHAFT No 56</td></tr>
-    <tr><td>114</td><td>KP 121+213</td><td>VENT SHAFT No 57</td></tr>
-    <tr><td>115</td><td>KP 121+314</td><td>VENT SHAFT No 58</td></tr>
-    <tr><td>116</td><td>KP 121+753</td><td>DRAIN SHAFT No 51</td></tr>
-    <tr><td>117</td><td>KP 123+450</td><td>VENT SHAFT No 59</td></tr>
-    <tr><td>118</td><td>KP 124+114</td><td>DRAIN SHAFT No 52</td></tr>
-    <tr><td>119</td><td>KP 124+600</td><td>VENT SHAFT No 60</td></tr>
-    <tr><td>120</td><td>KP 130+433</td><td>VENT SHAFT No 61</td></tr>
-    <tr><td>121</td><td>KP 124+640</td><td>VENT SHAFT No 62</td></tr>
-    <tr><td>122</td><td>KP 133+022</td><td>DRAIN SHAFT No 53</td></tr>
-    <tr><td>123</td><td>KP 137+368</td><td>DRAIN SHAFT No 54</td></tr>
-    <tr><td>124</td><td>KP 138+505</td><td>VENT SHAFT No 63</td></tr>
-    <tr><td>125</td><td>KP 142+770</td><td>VENT SHAFT No 64</td></tr>
-    <tr><td>126</td><td>KP 143+193</td><td>DRAIN SHAFT No 55</td></tr>
-    <tr><td>127</td><td>KP 143+375</td><td>VENT SHAFT No 65</td></tr>
-    <tr><td>128</td><td>KP 144+370</td><td>VENT SHAFT No 66</td></tr>
-    <tr><td>129</td><td>KP 144+899</td><td>DRAIN SHAFT No 56</td></tr>
-    <tr><td>130</td><td>KP 146+160</td><td>VENT SHAFT No 67</td></tr>
-    <tr><td>131</td><td>KP 146+489</td><td>DRAIN SHAFT No 57</td></tr>
-    <tr><td>132</td><td>KP 147+034</td><td>VENT SHAFT No 68</td></tr>
-    <tr><td>133</td><td>KP 148+000</td><td>WASH OUT SHAFT No 4</td></tr>
-    <tr><td>134</td><td>KP 149+617</td><td>VENT SHAFT No 69</td></tr>
-    <tr><td>135</td><td>KP 150+268</td><td>DRAIN SHAFT No 58</td></tr>
-    <tr><td>136</td><td>KP 151+234</td><td>VENT SHAFT No 70</td></tr>
-    <tr><td>137</td><td>KP 152+235</td><td>DRAIN SHAFT No 59</td></tr>
-    <tr><td>138</td><td>KP 154+227</td><td>VENT SHAFT No 71</td></tr>
-    <tr><td>139</td><td>KP 154+844</td><td>VENT SHAFT No 72</td></tr>
-    <tr><td>140</td><td>KP 155+560</td><td>DRAIN SHAFT No 60</td></tr>
-    <tr><td>141</td><td>KP 156+247</td><td>VENT SHAFT No 73</td></tr>
-    <tr><td>142</td><td>KP 157+042</td><td>DRAIN SHAFT No 61</td></tr>
-    <tr><td>143</td><td>KP 157+235</td><td>VENT SHAFT No 74</td></tr>
-    <tr><td>144</td><td>KP 157+758</td><td>DRAIN SHAFT No 62</td></tr>
-    <tr><td>145</td><td>KP 158+350</td><td>VENT SHAFT No 75</td></tr>
-    <tr><td>146</td><td>KP 158+200</td><td>LINEVALVE No 01</td></tr>
-    <tr><td>147</td><td>KP 160+381</td><td>VENT SHAFT No 76</td></tr>
-    <tr><td>148</td><td>KP 161+585</td><td>VENT SHAFT No 77</td></tr>
-    <tr><td>149</td><td>KP 162+398</td><td>DRAIN SHAFT No 63</td></tr>
-    <tr><td>150</td><td>KP 165+697</td><td>VENT SHAFT No 78</td></tr>
-    <tr><td>151</td><td>KP 169+790</td><td>VENT SHAFT No 79</td></tr>
-    <tr><td>152</td><td>KP 171+060</td><td>DRAIN SHAFT No 64</td></tr>
-    <tr><td>153</td><td>KP 172+197</td><td>VENT SHAFT No 80</td></tr>
-    <tr><td>154</td><td>KP 177+020</td><td>DRAIN SHAFT No 65</td></tr>
-    <tr><td>155</td><td>KP 177+931</td><td>VENT SHAFT No 81</td></tr>
-    <tr><td>156</td><td>KP 179+147</td><td>DRAIN SHAFT No 66</td></tr>
-    <tr><td>157</td><td>KP 181+034</td><td>VENT SHAFT No 82</td></tr>
-    <tr><td>158</td><td>KP 181+992</td><td>DRAIN SHAFT No 67</td></tr>
-    <tr><td>159</td><td>KP 182+250</td><td>WASHOUT</td></tr>
-    <tr><td>160</td><td>KP 183+909</td><td>VENT SHAFT No 83</td></tr>
-    <tr><td>161</td><td>KP 185+038</td><td>DRAIN SHAFT No 68</td></tr>
-    <tr><td>162</td><td>KP 187+547</td><td>VENT SHAFT No 84</td></tr>
-    <tr><td>163</td><td>KP 187+668</td><td>DRAIN SHAFT No 69</td></tr>
-    <tr><td>164</td><td>KP 189+581</td><td>VENT SHAFT No 85</td></tr>
-    <tr><td>165</td><td>KP 190+827</td><td>DRAIN SHAFT No 70</td></tr>
-    <tr><td>166</td><td>KP 193+630</td><td>VENT SHAFT No 86</td></tr>
-    <tr><td>167</td><td>KP 196+256</td><td>VENT SHAFT No 87</td></tr>
-    <tr><td>168</td><td>KP 196+815</td><td>VENT SHAFT No 88</td></tr>
-    <tr><td>169</td><td>KP 197+738</td><td>DRAIN SHAFT No 71</td></tr>
-    <tr><td>170</td><td>TAP-OFF VALVE SHAFT C12-021</td></tr>
-    <tr><td>171</td><td>TAP-OFF VALVE SHAFT C13-021</td></tr>
-    <tr><td>172</td><td>TAP-OFF VALVE SHAFT C14-021</td></tr>
-    <tr><td>173</td><td>TAP-OFF VALVE SHAFT C15-032</td></tr>
-    <tr><td>174</td><td>TAP-OFF VALVE SHAFT C16-021</td></tr>
-    <tr><td>175</td><td>TAP-OFF STATION TOSM07</td></tr>
-    <tr><td>176</td><td>TAP-OFF STATION TOSM08</td></tr>
-    <tr><td>177</td><td>TAP-OFF STATION TOSM09 FUTURE</td></tr>
-    <tr><td>178</td><td>TAP-OFF STATION TOSM10</td></tr>
-    <tr><td>179</td><td>LV1</td></tr>
-    <tr><td>180</td><td>LV2</td></tr>
-
-</table>
-
-<script>
-    function printTable() {
-        var divContents = document.getElementById("myTable").outerHTML;
-        var printWindow = window.open('', '', 'height=600,width=800');
-        printWindow.document.write('<html><head><title>Print Table</title>');
-        printWindow.document.write('</head><body >');
-        printWindow.document.write(divContents);
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
-        printWindow.print();
-    }
-
-    function copyTable() {
-        var range = document.create
-        Range();
-        range.selectNode(document.getElementById("myTable"));
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-        document.execCommand("copy");
-        alert("Table copied to clipboard");
-    }
-</script>
 
 </body>
 </html>
